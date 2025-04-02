@@ -1,0 +1,11 @@
+POST http://localhost:3333/subscriptions
+Content-type: application/json
+
+{
+    "name": "vitoria",
+    "email": "vitoria@anjos.com"
+}
+
+###
+
+GET http://localhost:3333/invite/vitoria.dev
