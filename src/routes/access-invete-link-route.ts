@@ -5,28 +5,26 @@ import { env } from "../env"
 import { accessInviteLink } from "../functions/access-invite-link"
 
 export const accessInviteLinkRoute: FastifyPluginAsyncZod = async (app) => {
-    app.get('/invite/:subscribeId',{
+    app.get('/invite/:subscriberId',{
         schema:{
             sumary: 'Access invite link and redirect user',
             tags: ['refarral'],
             params: z.object({
-                subscribeId:z.string(),
+                subscriberId:z.string(),
             }), 
     
             response: {
-                201: z.object({
-                    subscribeId: z.string(),
-                })
-            }
+                302: z.null(),
+            },
         },
     }, async (request, reply) => {
-       const { subscribeId } = request.params
+       const { subscriberId } = request.params
 
-       await accessInviteLink({ subscribeId })
+       await accessInviteLink({ subscriberId })
 
        const redirectUrl = new URL(env.WEB_URL)
 
-       redirectUrl.searchParams.set('referrer', subscribeId)
+       redirectUrl.searchParams.set('referrer', subscriberId)
 
        // 301: redirect permanente
        //302: redirect temporario

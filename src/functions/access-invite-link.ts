@@ -4,12 +4,12 @@ import { subscriptions } from "../schema/subscriptions"
 
 
 interface accessInviteLinkParams {
-    subscribeId: string;
+    subscriberId: string;
 }
 
 
 export async function accessInviteLink({
-   subscribeId,
+   subscriberId,
 }: accessInviteLinkParams) {
-   await redis.hincrby('refarral:access-count', subscribeId, 1)
+   await redis.hincrby('refarral:access-count', subscriberId, 1)
 }
