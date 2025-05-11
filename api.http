@@ -1,0 +1,26 @@
+POST http://localhost:3333/subscriptions
+Content-type: application/json
+
+{
+    "name": "vitoria",
+    "email": "vitoria@gmail.com",
+    "Referer": "",
+}
+
+###
+
+GET http://localhost:3333/invite/vitoria.dev
+
+###
+
+GET http://localhost:3333/subscribers/vitoria.dev/ranking/clicks
+
+###
+
+GET http://localhost:3333/subscribers/vitoria.dev/ranking/count
+
+###
+GET http://localhost:3333/subscribers/vitoria.dev/ranking/position
+
+###
+GET http://localhost:3333/ranking

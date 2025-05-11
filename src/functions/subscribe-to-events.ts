@@ -7,7 +7,7 @@ import { redis } from "../redis/client";
 interface subscribeToEventParams {
     name: string;
     email: string;
-    referrerId: string | null;
+    referrerId?: string | null;
 }
 
 export async function subscribeToEvent({
@@ -30,7 +30,7 @@ export async function subscribeToEvent({
             name,
             email,
             
-    })
+        })
     .returning()
 
     if (referrerId){
